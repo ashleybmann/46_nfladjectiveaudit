@@ -53,7 +53,7 @@ Requirements: Python 3 with `pandas`, `numpy`, `matplotlib`, `scikit-learn`, and
 python3 -m venv .venv
 source .venv/bin/activate
 pip install pandas numpy matplotlib scikit-learn jupyter ipykernel
-python -m ipykernel install --user --name nfl-adj-audit   # kernel name the notebooks expect
+python -m ipykernel install --user --name nfl-adj-audit   # kernel name the notebook expects
 jupyter notebook eda_60.ipynb
 ```
 
