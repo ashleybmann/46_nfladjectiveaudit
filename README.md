@@ -8,18 +8,13 @@ It takes pre-draft scouting reports for QBs (overview, strengths, weaknesses), s
 
 | File | Description |
 | --- | --- |
-| `data/scouting_corpus_30.csv` | *(private, not in this repo)* Pilot corpus: 30 QBs (15 Black, 15 white), draft years 2017–2026 |
-| `data/scouting_corpus_60.csv` | *(private, not in this repo)* Expanded corpus: 60 QBs (30 Black, 30 White), draft years 2015–2026 |
-| `eda_30.ipynb` | Analysis notebook for the 30-player corpus |
-| `eda_60.ipynb` | Analysis notebook for the 60-player corpus (same pipeline) |
-| `figures/` | Charts exported from the notebooks |
+| `data/scouting_corpus_60.csv` | *(private, not in this repo)* 60 QBs (30 Black, 30 White), draft years 2015–2026 |
+| `eda_60.ipynb` | Analysis notebook |
+| `figures/` | Chart exported from the notebook |
 
 ### Data schema
 
-The scouting-report text isn't published here. To rerun the notebooks, put your own CSVs with this schema in `data/`.
-
-
-Both CSVs share the same six columns:
+The scouting-report text isn't published here. To rerun the notebook, put your own CSV in `data/`. It needs six columns:
 
 | Column | Description |
 | --- | --- |
@@ -30,11 +25,9 @@ Both CSVs share the same six columns:
 | `strengths` | Free-text strengths section |
 | `weaknesses` | Free-text weaknesses section |
 
-> Note: the 30-player CSV uses lowercase `white`, while the 60-player CSV uses `White`. The notebooks read the group names straight from the data, so this only affects chart titles. Normalize the casing if you merge the two files.
-
 ## Method
 
-Each notebook runs the same three steps:
+The notebook runs three steps:
 
 1. **Load and combine.** Reads the CSV, fills empty text fields, and joins `overview + strengths + weaknesses` into one `evaluation_text` column per player.
 2. **TF-IDF and divergence.**
@@ -46,7 +39,7 @@ Each notebook runs the same three steps:
 
 ## Results
 
-Top 10 most divergent terms per cohort in the 60-player corpus, by mean TF-IDF weight.
+Top 10 most divergent terms per cohort, by mean TF-IDF weight.
 
 ![Divergent terms, 60-player corpus](figures/divergent_terms_60.png)
 
@@ -77,7 +70,7 @@ These settings are in the Step 2 cell:
 
 ## Caveats
 
-- **Small sample.** With 30–60 reports, a single player's report can move the results a lot. Treat the output as exploratory, not as statistical evidence.
+- **Small sample.** With 60 reports, a single player's report can move the results a lot. Treat the output as exploratory, not as statistical evidence.
 - **No significance testing.** Divergence is a raw difference in means. A permutation test (shuffling the group labels) would show which gaps are larger than chance.
 - **Confounders.** Play style (for example, running vs. pocket QBs), draft position, and era all affect the vocabulary and may correlate with cohort.
 - **Single source style.** If the reports come from one outlet or analyst, the results describe that writer's vocabulary, not scouting language in general.
