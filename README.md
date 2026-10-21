@@ -46,17 +46,11 @@ Each notebook runs the same three steps:
 
 ## Results
 
-Top 10 most divergent terms per cohort, by mean TF-IDF weight.
-
-**60-player corpus**
+Top 10 most divergent terms per cohort in the 60-player corpus, by mean TF-IDF weight.
 
 ![Divergent terms, 60-player corpus](figures/divergent_terms_60.png)
 
-**30-player pilot corpus**
-
-![Divergent terms, 30-player corpus](figures/divergent_terms_30.png)
-
-Across both corpora, Black QBs' reports lean toward physical and developmental language (`big`, `extend`, `dual threat`, `legs`, `inconsistent`, `improved`, `prove`). White QBs' reports lean toward processing and technique language (`placement`, `read`, `release`, `timing`, `scheme`, `experience`). `inconsistent`, `improved`, `zone`, and `teams` appear on the Black side in both runs; `placement`, `read`, `scheme`, `experience`, and `tape` appear on the white side in both. See [Caveats](#caveats) before drawing conclusions.
+Black QBs' reports lean toward physical and developmental language (`big`, `extend`, `dual threat`, `inconsistent`, `improved`). White QBs' reports lean toward processing and technique language (`release`, `placement`, `read`, `scheme`, `experience`). See [Caveats](#caveats) before drawing conclusions.
 
 ## Getting started
 
